@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { createTodos } from './utils.js'
-import TodoList from './TodoList.js'
-import '../style.css'
+import TodoList from './Todolist.js'
 
 const todos = createTodos()
 

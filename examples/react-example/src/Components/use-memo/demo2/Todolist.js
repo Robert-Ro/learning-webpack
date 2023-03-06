@@ -3,6 +3,7 @@ import { filterTodos } from './utils.js'
 
 export default function TodoList({ todos, theme, tab }) {
   const visibleTodos = filterTodos(todos, tab) // NOTE no useMemo
+
   return (
     <div className={theme}>
       <ul>

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { createTodos } from './utils.js'
-import TodoList from './TodoList.js'
-import '../style.css'
+import TodoList from './Todolist.js'
 
 const todos = createTodos()
 
 export default function App() {
   const [tab, setTab] = useState('all')
   const [isDark, setIsDark] = useState(false)
+
   return (
     <>
       <button onClick={() => setTab('all')}>All</button>

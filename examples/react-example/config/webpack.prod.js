@@ -2,29 +2,42 @@ const { merge } = require('webpack-merge')
 const base = require('./webpack.base')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 /**
  * @type {import("webpack").Configuration}
  */
 const prod = {
-  mode: 'development',
+  mode: 'production',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    // filename: '[name].[contenthash].js',
-    filename: '[name].js',
-    // chunkFilename: '[name].[contenthash].js',
+    filename: '[name].[contenthash].js',
+    clean: true,
   },
   devtool: 'hidden-source-map',
   performance: {
     hints: 'warning',
   },
-  plugins: [new ForkTsCheckerWebpackPlugin()],
+  plugins: [
+    new ForkTsCheckerWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name][contenthash].css',
+      chunkFilename: '[id].css',
+      ignoreOrder: false,
+    }),
+  ],
   module: {
     rules: [
       {
         test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
-        include: [path.resolve(__dirname, '../src'), path.resolve(__dirname, '../../../packages')],
+        include: [path.resolve(__dirname, '../src')],
         use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/i,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },

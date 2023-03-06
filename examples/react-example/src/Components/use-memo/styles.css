@@ -60,3 +60,7 @@ label {
   background-color: white;
   color: black;
 }
+.base {
+  font-size: 14px;
+  line-height: 1.25;
+}

@@ -21,9 +21,11 @@ const CustomButton = ({
   additionalParameter,
   children,
   onClick,
+  key,
 }: {
   additionalParameter: number
-  children: ReactNode
+  children?: ReactNode
+  key: any
   onClick: (e: MouseEvent, additionalParameter: number) => void
 }) => {
   const onInnerClick = useCallback(
@@ -54,20 +56,11 @@ export const FormDemo = () => {
     form.resetFields()
   }
   return (
-    <Form
-      form={form}
-      onFinish={onFinish}
-    >
-      <Form.Item
-        name="name"
-        label="name"
-      >
+    <Form form={form} onFinish={onFinish}>
+      <Form.Item name="name" label="name">
         <Input />
       </Form.Item>
-      <Form.Item
-        name="age"
-        label="age"
-      >
+      <Form.Item name="age" label="age">
         <CustomInput />
       </Form.Item>
       <Form.Item>
@@ -83,16 +76,10 @@ export const FormDemo = () => {
           )
         })}
         <br />
-        <Button
-          type="primary"
-          htmlType="submit"
-        >
+        <Button type="primary" htmlType="submit">
           Submit
         </Button>
-        <Button
-          htmlType="button"
-          onClick={onReset}
-        >
+        <Button htmlType="button" onClick={onReset}>
           Reset
         </Button>
       </Form.Item>
