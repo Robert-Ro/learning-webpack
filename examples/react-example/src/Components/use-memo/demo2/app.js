@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import { createTodos } from './utils.js'
 import TodoList from './Todolist.js'
+import '../styles.css'
 
 const todos = createTodos()
 
 export default function App() {
   const [tab, setTab] = useState('all')
   const [isDark, setIsDark] = useState(false)
+
+  useLayoutEffect(() => {
+    console.log('before paint')
+  }, [])
 
   return (
     <>
