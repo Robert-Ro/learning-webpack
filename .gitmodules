@@ -1,0 +1,6 @@
+[submodule "tiny_webpack_test"]
+	path = tiny_webpack_test
+	url = https://github.com/lzy19926/tiny_webpack_test
+[submodule "webpack-training-project"]
+	path = webpack-training-project
+	url = https://github.com/GoogleChromeLabs/webpack-training-project

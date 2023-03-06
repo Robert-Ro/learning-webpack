@@ -1,0 +1,16 @@
+.red {
+    color: red;
+    font-size: 30px;
+}
+
+
+.yellow {
+    color: yellow;
+    font-size: 30px;
+}
+
+
+.blue {
+    transition-duration: 1s;
+    color: blue;
+}

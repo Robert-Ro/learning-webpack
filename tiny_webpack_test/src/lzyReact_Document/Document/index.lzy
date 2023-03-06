@@ -1,0 +1,45 @@
+import LzyReact from 'lzy-react'
+import { TabContainer } from 'lzy-ui'
+import BaseLayout from '../BaseLayout/BaseLayout.lzy'
+import LzyUIPage from './pages/LzyUI.lzy'
+import Start from './pages/Start.lzy'
+import LzyWebpack from './pages/LzyWebpack.lzy'
+import Description from './pages/Description.lzy'
+import UseJSX from './pages/UseJSX.lzy'
+import Hooks from './pages/Hooks.lzy'
+import Communication from './pages/Communication.lzy'
+import Concurrent from './pages/Concurrent.lzy'
+import Router from './pages/Router.lzy'
+import Ruzy from './pages/Ruzy.lzy'
+import EventSystem from './pages/EventSystem.lzy'
+//! Demo组件
+export default function Document() {
+
+    const tabsData = [
+        { title: '介绍', key: 'about', render: () => <Description /> },
+        { title: '开始', key: 'start', render: () => <Start /> },
+
+        { title: '使用jsx', key: 'jsx', render: () => <UseJSX /> },
+        { title: 'hooks功能', key: 'hooks', render: () => <Hooks /> },
+        { title: '组件之间的通信', key: 'message', render: () => <Communication /> },
+        { title: 'concurrent切片渲染', key: 'concurrent', render: () => <Concurrent /> },
+        { title: '合成事件系统', key: 'event', render: () => <EventSystem /> },
+
+        { title: 'lzyReact-router路由', key: 'router', render: () => <Router /> },
+        { title: 'ruzy全局状态管理', key: 'ruzy', render: () => <Ruzy /> },
+        { title: 'lzyUI组件库', key: 'lzyui', render: () => <LzyUIPage /> },
+        { title: 'lzy-Webpack', key: 'webpack', render: () => <LzyWebpack /> },
+    ]
+
+
+    return (
+        <BaseLayout>
+            <TabContainer dataSorce={tabsData}
+                defaultActiveKey='about'
+                sideWidth={240}
+                style="height:calc(100vh -60px)" />
+        </BaseLayout>
+    )
+}
+
+

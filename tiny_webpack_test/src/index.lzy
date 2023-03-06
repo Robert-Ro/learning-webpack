@@ -1,0 +1,43 @@
+// 引入基本库
+import LzyReact, { render, createContext, myUseContext } from 'lzy-react'
+
+// 
+import DropStart from './DropStart/index.lzy'
+import RoutePage from './RoutePage/RoutePage.lzy'
+
+
+// 启动基座项目
+function App() {
+    return (
+        <div className="App">
+            <DropStart />
+            <RoutePage />
+        </div>
+    );
+}
+
+
+//todo useContext测试
+
+//创建context
+const demoContext = createContext(18)
+//使用Provider包裹子组件
+function ContextTest() {
+    return (
+        <demoContext.Provider>
+            <ContextChild />
+        </demoContext.Provider>
+    )
+}
+//使用context
+function ContextChild() {
+    const value = myUseContext(demoContext)
+    return <div>ContextValue:{value}</div>
+}
+
+render(<App />, document.getElementById('root'))
+
+
+
+
+
